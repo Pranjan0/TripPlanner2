@@ -1,0 +1,17 @@
+.slide2{
+    background: url(https://wallpaperaccess.com/full/185289.jpg);
+}
+.slide1{
+    background: url(https://wallpaperaccess.com/full/4492247.jpg);
+}
+
+.myslide{
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.mySwiper{
+    height: 80vh;
+}
