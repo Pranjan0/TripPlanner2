@@ -7,6 +7,7 @@ import Signup from './components/Signup';
 import Addplaces from './components/Addplaces';
 import Navbar from './components/Navbar';
 import Itinerary from './components/Itinerary';
+import Browseplaces from './components/Browseplaces';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route element={<Login></Login>} path="/login" />
         <Route element={<Addplaces></Addplaces>} path="addplace" />
         <Route element={<Itinerary></Itinerary>} path="itinerary" />
+        <Route element={<Browseplaces />} path="browse" />
         {/* <Route element={<Navbar></Navbar>} path="/nav" /> */}
       </Routes>
       </BrowserRouter>      

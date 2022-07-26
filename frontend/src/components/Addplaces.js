@@ -1,12 +1,14 @@
 import { Formik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 
 const Addplaces = () => {
 
-    const url = "http://localhost:5000"
+    const url = "http://localhost:5000";
+    const [thumbnail, setThumbnail] = useState("");
 
     const userSubmit = async (formdata) => {
+        formdata.thumbnail = thumbnail;
         console.log(formdata);
         const res=await fetch(url+'/place/add',{
               method: 'POST',
@@ -26,8 +28,9 @@ const Addplaces = () => {
 
     const uploadImage = async (e) => {
         const file = e.target.files[0];
+        setThumbnail(file.name);
         const fd = new FormData();
-        fd.append(file, 'myfile')
+        fd.append('myfile', file);
 
         const res = await fetch(url+'/util/uploadfile', {
             method: 'POST',
@@ -47,7 +50,7 @@ const Addplaces = () => {
                 <div className="card mt-5">
                     <div className="card-body">
 
-                        <Formik initialValues={{ title : '', city : '', state : '', pincode : 0, createdat: new Date(), type : ' ', budget : 0, description : ' ', bestTime: ' '}} onSubmit={userSubmit}>
+                        <Formik initialValues={{ title : '', city : '', state : '', pincode : 0, createdat: new Date(), type : '', budget : '', description : '', bestTime: ''}} onSubmit={userSubmit}>
                             {({values, handleChange, handleSubmit}) => (
                                 <form onSubmit={handleSubmit}>
                                     
@@ -66,6 +69,9 @@ const Addplaces = () => {
                                     <label className='mt-4'>Pincode</label>
                                     <input value={values.pincode} onChange={handleChange} id="pincode"  className='form-control' />
 
+                                    <label className='mt-4'>Create Date</label>
+                                    <input value={values.createdat} onChange={handleChange} id="createdat"  className='form-control' />
+
                                     
                                     <label className='mt-4'>Type</label>
                                     <input value={values.type} onChange={handleChange} id="type" className='form-control' />
@@ -74,7 +80,7 @@ const Addplaces = () => {
                                     <input value={values.budget} onChange={handleChange} id="budget" className='form-control' />
 
                                     <label className='mt-4'>Description</label>
-                                    <input value={values.createdat} onChange={handleChange} id="description" className='form-control' />
+                                    <input value={values.description} onChange={handleChange} id="description" className='form-control' />
 
                                     <label className='mt-4'>Best Time to Visit</label>
                                     <input value={values.bestTime} onChange={handleChange} id="bestTime" className='form-control' />

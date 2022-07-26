@@ -14,7 +14,7 @@ const Home = () => {
     <div>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         <SwiperSlide className='myslide slide1'>
-         <h1 className="p-3 me-4">Travel Guide</h1>
+         <h1 className="col-md-6" style={{margin:"100px",color:"black",fontFamily:"monospace"}}>Travel Guide</h1>
           </SwiperSlide>
         <SwiperSlide className='myslide slide2'>Slide 2</SwiperSlide>
         <SwiperSlide className='myslide slide3'>Slide 3</SwiperSlide>

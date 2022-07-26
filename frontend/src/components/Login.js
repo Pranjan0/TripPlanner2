@@ -40,7 +40,7 @@ const Login = () => {
   
 
     return (
-        <div style={{backgroundImage:`url(${img2})`, backgroundSize:'cover',backgroundPosition:"center",height:"495px"}}>
+        <div style={{backgroundImage:`url(${img2})`, backgroundSize:'cover',backgroundPosition:"center",height:"495px"}} className="pt-5">
             <div className="col-md-4 mx-auto bg-light mt-1 opacity-85">
                 <div className="card" style={{color:"black"}}>
                     <div className="card-body">

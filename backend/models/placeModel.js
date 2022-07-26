@@ -6,7 +6,8 @@ const Myplaces =  new Schema({
     pincode : Number,
     createdat: Date,
     type : String,
-    budget : Number,
+    budget : String,
+    thumbnail: String,
     description : String,
     bestTime: String
 })

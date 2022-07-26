@@ -18,7 +18,7 @@ const Navbar = () => {
                  
                    <ul class="navbar-nav me-auto mb-2 ms-2 ps-1 ms-lg-0 ps-lg-0 mb-lg-0"> 
                     <li class="nav-item"><a class="nav-link" href="/" aria-controls="#picker-editor">Home</a></li>
-                     <li class="nav-item"> <a class="nav-link" href="/addplace">Add Places</a> </li> 
+                     <li class="nav-item"> <a class="nav-link" href="/browse">Browse Places</a> </li> 
                      <li class="nav-item"> <a class="nav-link" href="/itinerary" aria-controls="#picker-editor">Itinerary</a> </li> 
                     </ul> 
         </div>
