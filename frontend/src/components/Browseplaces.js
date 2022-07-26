@@ -27,12 +27,12 @@ const Browseplaces = () => {
           <div class="card">
             <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
               data-mdb-ripple-color="light">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/belt.webp"
+              <img src=""
                 class="w-100" />
               <a href="#!">
                 <div class="mask">
                   <div class="d-flex justify-content-start align-items-end h-100">
-                    <h5><span class="badge bg-primary ms-2">New</span></h5>
+                    <h5><span class="badge bg-primary ms-2">{type}</span></h5>
                   </div>
                 </div>
                 <div class="hover-overlay">
@@ -42,7 +42,12 @@ const Browseplaces = () => {
             </div>
             <div class="card-body">
               <h4>{title}</h4>
-              <p>{city}</p>
+              <p>{city},{state}</p>
+              <p>{description}</p>
+              <h5>Best time to visit - {bestTime}</h5>
+              <p>Budget - {budget}</p>
+
+
             </div>
           </div>
         </div>
@@ -55,7 +60,7 @@ const Browseplaces = () => {
       <hr />
       <section style={{backgroundColor: '#eee'}}>
   <div class="text-center container py-5">
-    <h4 class="mt-4 mb-5"><strong>Bestsellers</strong></h4>
+    <h4 class="mt-4 mb-5"><strong>😍Mark your Place😍</strong></h4>
 
     <div class="row">
       {showPlaces()}
