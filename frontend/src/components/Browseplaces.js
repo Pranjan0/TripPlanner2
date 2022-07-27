@@ -60,7 +60,7 @@ const Browseplaces = () => {
       <hr />
       <section style={{backgroundColor: '#eee'}}>
   <div class="text-center container py-5">
-    <h4 class="mt-4 mb-5"><strong>😍Mark your Place😍</strong></h4>
+    <h4 class="mt-4 mb-5"><strong>😍Mark your Place`😍</strong></h4>
 
     <div class="row">
       {showPlaces()}
