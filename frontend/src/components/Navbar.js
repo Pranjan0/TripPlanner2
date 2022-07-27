@@ -4,22 +4,22 @@ import {  Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div>
-       <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-2">
-        <div class="container-fluid">
-        <div class="d-flex">
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"> 
+       <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-2">
+        <div className="container-fluid">
+        <div className="d-flex">
+        <button className="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"> 
                     <i class="fas fa-bars"></i> 
         </button>
-                  <a class="navbar-brand ms-3"> 
-                  <i class="fa-solid fa-plane-departure"></i>
+                  <a className="navbar-brand ms-3"> 
+                  <i className="fa-solid fa-plane-departure"></i>
                   </a>  
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent d-flex align-item-right">
                  
-                   <ul class="navbar-nav me-auto mb-2 ms-2 ps-1 ms-lg-0 ps-lg-0 mb-lg-0"> 
-                    <li class="nav-item"><a class="nav-link" href="/" aria-controls="#picker-editor">Home</a></li>
-                     <li class="nav-item"> <a class="nav-link" href="/browse">Browse Places</a> </li> 
-                     <li class="nav-item"> <a class="nav-link" href="/itinerary" aria-controls="#picker-editor">Itinerary</a> </li> 
+                   <ul className="navbar-nav me-auto mb-2 ms-2 ps-1 ms-lg-0 ps-lg-0 mb-lg-0"> 
+                    <li className="nav-item"><a class="nav-link" href="/" aria-controls="#picker-editor">Home</a></li>
+                     <li className="nav-item"> <a class="nav-link" href="/browse">Browse Places</a> </li> 
+                     <li className="nav-item"> <a class="nav-link" href="/itinerary" aria-controls="#picker-editor">Itinerary</a> </li> 
                     </ul> 
         </div>
         <div class="d-flex align-item-center"> 

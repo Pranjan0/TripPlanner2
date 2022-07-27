@@ -22,12 +22,12 @@ const Browseplaces = () => {
 
     const showPlaces = () => {
         if(!loading){
-          return placesArray.map(({title, city, state, pincode, createdat, type, budget,description, bestTime}) => (
+          return placesArray.map(({title, city, state, pincode, createdat, type, budget,description, bestTime, thumbnail}) => (
             <div class="col-lg-4 col-md-4 mb-4">
           <div class="card">
             <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
               data-mdb-ripple-color="light">
-              <img src=""
+              <img src={url+'/'+thumbnail}
                 class="w-100" />
               <a href="#!">
                 <div class="mask">
@@ -46,8 +46,7 @@ const Browseplaces = () => {
               <p>{description}</p>
               <h5>Best time to visit - {bestTime}</h5>
               <p>Budget - {budget}</p>
-
-
+              <b><button className='btn btn-primary mt-5'>Add to Itinerary</button></b>
             </div>
           </div>
         </div>

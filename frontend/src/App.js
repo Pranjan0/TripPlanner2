@@ -23,7 +23,9 @@ function App() {
         {/* <Route element={<Home></Home>} path="/homepage" /> */}
         <Route element={<Login></Login>} path="/login" />
         <Route element={<Addplaces></Addplaces>} path="addplace" />
-        <Route element={<Itinerary></Itinerary>} path="itinerary" />
+        <Route element={<Auth>
+          <Itinerary></Itinerary>
+        </Auth>} path="itinerary" />
         <Route element={<Browseplaces />} path="browse" />
         <Route element={<Auth />} path="auth" />
 

@@ -1,11 +1,13 @@
 import { Formik } from 'formik';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const img='https://sustainabletravel.org/wp-content/uploads/Small-Islands-Header-Image-Web.jpg';
 const img2='https://wallpaperaccess.com/full/407997.jpg';
 
 const Login = () => {
+  const navigate = useNavigate();
 
     const userSubmit = async (formdata) => {
         console.log(formdata);
@@ -22,6 +24,10 @@ const Login = () => {
                 title: 'Login Successful',
                 text: 'You are logged in'
               })
+              res.json().then(data=>{
+                sessionStorage.setItem("user",JSON.stringify(data));
+                navigate('/login');
+             });
             }else if(res.status===400){
               Swal.fire({
                 icon: 'error',
