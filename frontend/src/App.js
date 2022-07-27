@@ -8,6 +8,7 @@ import Addplaces from './components/Addplaces';
 import Navbar from './components/Navbar';
 import Itinerary from './components/Itinerary';
 import Browseplaces from './components/Browseplaces';
+import Auth from './components/Auth';
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
         <Route element={<Addplaces></Addplaces>} path="addplace" />
         <Route element={<Itinerary></Itinerary>} path="itinerary" />
         <Route element={<Browseplaces />} path="browse" />
+        <Route element={<Auth />} path="auth" />
+
         {/* <Route element={<Navbar></Navbar>} path="/nav" /> */}
       </Routes>
       </BrowserRouter>      
