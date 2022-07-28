@@ -6,6 +6,7 @@ const port = 5000;
 
 const userRouter = require('./routers/userRouter');
 const placeRouter= require('./routers/placeRouter') 
+const itineraryRouter= require('./routers/itineraryRouter') 
 const utilRouter= require('./routers/util') 
 
 const cors = require('cors');
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use( cors({ origin : ['http://localhost:3000'] }) )
 app.use('/user', userRouter);
 app.use('/place', placeRouter);
+app.use('/itinerary', itineraryRouter);
 app.use('/util', utilRouter);
 app.get('/add', (req, res) => {
     res.send('Response from Express!');
