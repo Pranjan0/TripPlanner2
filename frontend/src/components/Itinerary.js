@@ -9,6 +9,58 @@ const Itinerary = () => {
 
   const [itineraryArray, setItineraryArray] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [visited,setVisited] = useState(false);
+  const [comment,setComment] = useState("");
+  
+  const updateItinerary =async (id, data)=>{
+    console.log(data);
+    const response = await fetch("http://localhost:5000/itinerary/update/"+id, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    console.log(response.status);
+    getDataFromBackend()
+  
+    if (response.status === 200) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Update Successful',
+            text: 'Successfully added'
+          })
+          
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Updation Failed',
+            text: 'Something went wrong'
+          })
+    }
+  }
+  const deleteItinerary=async(id)=>{
+    const response = await fetch("http://localhost:5000/itinerary/delete/"+id, {
+      method: "DELETE"
+    });
+
+    console.log(response.status);
+    getDataFromBackend()
+  
+    if (response.status === 200) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Delete Successful',
+            text: 'Successfully deleted'
+          })
+          
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Deletion Failed',
+            text: 'Something went wrong'
+          })
+    }
+  }
 
   const [filter, setFilter] = useState("");
 
@@ -26,11 +78,14 @@ const Itinerary = () => {
   useEffect(() => {
     getDataFromBackend();
   }, []);
+
+
   
   const showItinerary = () => {
     if (!loading) {
       return itineraryArray.map(
         ({
+          _id,
           place,
           time,
           visited,
@@ -78,7 +133,10 @@ const Itinerary = () => {
                 </div>
                 <div className="form-check d-flex mt-2">
                 <label className="form-check-label" for="flexCheckDefault">Visited
-                <input className="form-check-input" type="checkbox" name="flexCheckDefault" id="flexCheckDefault"/>   </label>
+                <input checked={visited} className="form-check-input" type="checkbox" name="flexCheckDefault" id="flexCheckDefault" onClick={(e, c) => {
+                  console.log(e.target.checked);
+                  updateItinerary(_id, {visited : e.target.checked})
+                }}/>   </label>
                 </div>
                 <div className='d-grid d-md-flex justify-content-md-end'><button className='btn btn-success mt-4'>Submit</button></div>
               </div>
