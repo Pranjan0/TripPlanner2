@@ -9,8 +9,7 @@ const Itinerary = () => {
 
   const [itineraryArray, setItineraryArray] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [visited,setVisited] = useState(false);
-  const [comment,setComment] = useState("");
+  const [commentsArray, setCommentsArray] = useState([]);
   
   const updateItinerary =async (id, data)=>{
     console.log(data);
@@ -67,6 +66,13 @@ const Itinerary = () => {
 
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
+  const updateComments = (i, val) => {
+    let temp = commentsArray;
+    temp[i] = val;
+    setCommentsArray([...commentsArray]);
+    console.log(commentsArray);
+  }
+
   const getDataFromBackend = async () => {
     setLoading(true);
     const res = await fetch(url + "/itinerary/getbyuser/"+currentUser._id);
@@ -74,6 +80,8 @@ const Itinerary = () => {
     setItineraryArray(data);
     setLoading(false);
     console.log(data);
+    setCommentsArray(data.map((iti) => iti.comments));
+
   };
 
   
@@ -83,8 +91,13 @@ const Itinerary = () => {
   }, []);
 
 
+
+
   
   const showItinerary = () => {
+    if(!itineraryArray.length){
+      return <h1 className='lg-heading'>Start Creating your Itinerary</h1>
+    }
     if (!loading) {
       return itineraryArray.map(
         ({
@@ -95,7 +108,7 @@ const Itinerary = () => {
           addedBy,
           comments
 
-        }) => (
+        }, index) => (
           <div className="col-lg-4 col-md-4 mb-4">
             <div className="card">
               <div
@@ -132,7 +145,7 @@ const Itinerary = () => {
                 
                 <div className="formOutline">
                 <label className="form-label d-flex mt-2" for="textAreaExample">Comment</label>
-                <textarea className="form-control" id="textAreaExample" rows="4"></textarea>
+                <textarea className="form-control" id="textAreaExample" rows="4" value={commentsArray[index]} onChange={e => updateComments(index, e.target.value)}></textarea>
                 </div>
                 <div className="form-check d-flex mt-2">
                 <label className="form-check-label" for="flexCheckDefault">Visited
@@ -141,7 +154,7 @@ const Itinerary = () => {
                   updateItinerary(_id, {visited : e.target.checked})
                 }}/>   </label>
                 </div>
-                <div className='d-grid d-md-flex justify-content-md-end'><button className='btn btn-success mt-4'>Submit</button></div>
+                <div className='d-grid d-md-flex justify-content-md-end'><button className='btn btn-success mt-4' onClick={e => updateItinerary(_id, {comments : commentsArray[index]})}>Submit</button></div>
               </div>
             </div>
           </div>
