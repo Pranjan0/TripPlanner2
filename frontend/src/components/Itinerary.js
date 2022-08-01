@@ -1,6 +1,6 @@
 import React from 'react'
 import Swal from 'sweetalert2';
-import { Formik } from 'formik';
+
 
 import { useEffect, useState } from "react";
 
@@ -52,6 +52,7 @@ const Itinerary = () => {
             title: 'Delete Successful',
             text: 'Successfully deleted'
           })
+          getDataFromBackend();
           
     } else {
         Swal.fire({
@@ -74,6 +75,8 @@ const Itinerary = () => {
     setLoading(false);
     console.log(data);
   };
+
+  
 
   useEffect(() => {
     getDataFromBackend();
@@ -102,7 +105,6 @@ const Itinerary = () => {
                              
                 <img src={url + "/" + place.thumbnail} className="w-100" />
                 <div className="mask">
-            <button className='btn btn-danger btn-sm d-flex'><i className="fa fa-trash" aria-hidden="true"></i></button> 
             </div>
             
                 <a href="#!">
@@ -122,6 +124,7 @@ const Itinerary = () => {
                 </a>
               </div>
               <div class="card-body">
+                    <button zIndex="2" className='btn btn-danger btn-sm d-flex' onClick={() => {deleteItinerary(_id)}}><i className="fa fa-trash" aria-hidden="true"></i></button> 
                 <h4>{place.budget}</h4>
                 <p>
                   {new Date(time).toLocaleString()},{visited}
