@@ -9,11 +9,15 @@ import Navbar from './components/Navbar';
 import Itinerary from './components/Itinerary';
 import Browseplaces from './components/Browseplaces';
 import Auth from './components/Auth';
+import { UserProvider } from "./useContext";
+import { useState } from "react";
 
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem("user")))
   return (
     <div>
+       <UserProvider user={currentUser}>
       <BrowserRouter>
       <Navbar />
       <Routes>
@@ -32,6 +36,7 @@ function App() {
         {/* <Route element={<Navbar></Navbar>} path="/nav" /> */}
       </Routes>
       </BrowserRouter>      
+      </UserProvider>
     </div>
     
   );

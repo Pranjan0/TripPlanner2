@@ -1,7 +1,17 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom";
+import { UserContext } from "../useContext";
+import { useContext, useState } from "react";
 
 const Navbar = () => {
+  
+  const navigate = useNavigate();
+  const {loggedIn, setLoggedIn, currentUser} = useContext(UserContext);
+  const logout = () => {
+    sessionStorage.removeItem("user")
+    setLoggedIn(false)
+    navigate('/login');
+  }
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,15 +53,18 @@ const Navbar = () => {
             </ul>
 
             <div class="d-flex align-items-center">
-              <button type="button" class="btn btn-link px-3 me-2">
+              <Link to="/login">
+              <button type="button" className="btn btn-link px-3 me-2">
                 Login
-              </button>
-              <button type="button" class="btn btn-link px-3 me-2">
+              </button></Link>
+              <Link to="">
+              <button type="button" className="btn btn-link px-3 me-2 dropdown-item" onClick={logout}>
                 Log Out
-              </button>
-              <button type="button" class="btn btn-primary me-3">
+              </button></Link>
+              <Link to="signup">
+              <button type="button" className="btn btn-primary me-3">
                 Sign up
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>

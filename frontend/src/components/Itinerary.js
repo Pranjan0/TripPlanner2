@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 
 
 import { useEffect, useState } from "react";
+const img="https://www.sacredwalks.org/wp-content/themes/isha/images/kailash-kyn.jpg";
 
 const Itinerary = () => {
   const url = "http://localhost:5000";
@@ -165,15 +166,13 @@ const Itinerary = () => {
   
   
   return <div>
-      <h2>Itinerary</h2>
-      <hr />
       <header>
         <div className="container">
           <h1 className="text-center display-4">Your Itinerary</h1>
           
         </div>
       </header>
-      <section style={{ backgroundColor: "#eee" }}>
+      <section style={{ backgroundColor: "#eee",backgroundImage:`url(${img})`,backgroundSize:"cover" }}>
         <div class="text-center container py-5">
           <h4 class="mt-4 mb-5">
             <strong>😍Mark your Place`😍</strong>

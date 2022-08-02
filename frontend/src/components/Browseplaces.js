@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+const img2='https://thumbs.dreamstime.com/b/travel-web-header-world-map-9984008.jpg';
 
 const Browseplaces = () => {
   const url = "http://localhost:5000";
@@ -50,6 +52,21 @@ const Browseplaces = () => {
     });
 
     console.log(response.status);
+    if (response.status === 200) {
+      Swal.fire({
+          icon: 'success',
+          title: 'Added Successfully😉',
+          text: 'Itinerary updated'
+        })
+        getDataFromBackend();
+        
+  } else {
+      Swal.fire({
+          icon: 'error',
+          title: 'Failed to add',
+          text: 'Something went wrong'
+        })
+  }
 
     // fetch(url + "/");
   };
@@ -114,13 +131,13 @@ const Browseplaces = () => {
     }
   };
   return (
-    <div>
-      <h2>Browse Tourism Places</h2>
+    <div style={{backgroundImage:`url(${img2})`,backgroundPosition:"center"}} >
+      <b><h2 style={{color:"black"}}>Browse Tourism Places</h2></b>
       <hr />
       <header>
         <div className="container">
-          <h1 className="text-center display-4">Create Your Itinerary</h1>
-          <div className="input-group">
+          <h1 className="text-center display-4 font-weight-bold" style={{color:"black"}}>Create Your Itinerary</h1>
+          <div className="input-group mb-3">
             <input
               className="form-control"
               onChange={(e) => setFilter(e.target.value)}
@@ -135,7 +152,7 @@ const Browseplaces = () => {
           </div>
         </div>
       </header>
-      <section style={{ backgroundColor: "#eee" }}>
+      <section style={{ backgroundColor: "#8fe4ef" }}>
         <div class="text-center container py-5">
           <h4 class="mt-4 mb-5">
             <strong>😍Mark your Place`😍</strong>
