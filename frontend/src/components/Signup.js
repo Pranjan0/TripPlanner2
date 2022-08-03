@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import Tripimg from './Tripimg.png'
 
 const Signup = () => {
+  const img="https://images.unsplash.com/photo-1515266591878-f93e32bc5937?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Ymx1ZSUyMG5hdHVyZXxlbnwwfHwwfHw%3D&w=1000&q=80";
   const eimg='https://i.pinimg.com/originals/1b/f3/27/1bf3274d158670e5decc8906959db687.jpg';
   const navigate=useNavigate();
   const userSubmit = async (formdata) => {
@@ -37,8 +38,8 @@ const Signup = () => {
   
 
   return (
-    <div className="container pt-4">
-      <div className="card mb-5" >
+    <div className="container" >
+      <div className="card mb-5" style={{backgroundImage:`url(${img})`,height:"100%",backgroundPosition:"center",backgroundSize:"cover"}}>
             <div className="row">
                  <div className="col-md-7 ">
                       <div style={{background:`url(${Tripimg})`,height:"100%",backgroundPosition:"center",backgroundSize:"cover" ,minHeight:"300px"}}>

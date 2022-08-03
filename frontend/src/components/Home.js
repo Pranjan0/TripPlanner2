@@ -27,45 +27,42 @@ const Home = () => {
       <div class="col-lg-4 col-md-12 mb-4 mb-lg-0"> 
                 <div> 
                   <div className="bg-image hover-overlay ripple shadow-1-strong rounded-4 mb-4 ripple-surface-light" data-mdb-ripple-color="light"> 
-                    <img src="https://mdbootstrap.com/img/new/standard/city/047.jpg" className="w-100" alt="place" aria-controls="#picker-editor" draggable="false" />
+                    <img src="https://www.lifeberrys.com/img/article/exploring-places-like-1-1592638524-lb.jpg" className="w-100" style={{height:"250px"}} alt="place" aria-controls="#picker-editor" draggable="false" />
                   </div> 
                   <h5 className="fw-bold">Browse Places</h5> 
                   <div className="mb-3 text-danger small"> 
                     <i className="fas fa-plane-departure me-2" aria-controls="#picker-editor"></i>
                     <span>Travel</span> 
                   </div> 
-                  <p className="text-muted"> Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat vulputate. Ut vulputate est non quam dignissim elementum. 
-                    Donec a ullamcorper diam. 
+                  <p className="text-muted">One of the primary reasons why you need to research your destination before traveling is to familiarize yourself with the activities available in the place you are interested to go. This will help you plan your itinerary accordingly. Take the time to explore online sources.
                   </p> 
                 </div> 
               </div>
       <div className="col-lg-4 col-md-12 mb-4 mb-lg-0"> 
                 <div> 
                   <div className="bg-image hover-overlay ripple shadow-1-strong rounded-4 mb-4 ripple-surface-light" data-mdb-ripple-color="light"> 
-                    <img src="https://mdbootstrap.com/img/new/standard/city/047.jpg" className="w-100" alt="place" aria-controls="#picker-editor" draggable="false" />
+                    <img src="https://pipandthecity.com/wp-content/uploads/2019/05/bigstock-170180348-800x500.jpg" className="w-100" style={{height:"250px"}} alt="place" aria-controls="#picker-editor" draggable="false" />
                   </div> 
                   <h5 className="fw-bold">Make your own Itinerary</h5> 
                   <div className="mb-3 text-danger small"> 
                   <i class="fas fa-clock me-2" aria-controls="#picker-editor"></i>
                     <span>Save Time</span> 
                   </div> 
-                  <p className="text-muted"> Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat vulputate. Ut vulputate est non quam dignissim elementum. 
-                    Donec a ullamcorper diam. 
+                  <p className="text-muted"> A good itinerary allows clients to maximise the time they have away. By ensuring each small detail is included in the document, there will be no time wasted travelling between places, activities, or accommodations. This will this show a realistic view of how much can fit into each day and manage expectations. 
                   </p> 
                 </div> 
               </div>
       <div class="col-lg-4 col-md-12 mb-4 mb-lg-0"> 
                 <div> 
                   <div className="bg-image hover-overlay ripple shadow-1-strong rounded-4 mb-4 ripple-surface-light" data-mdb-ripple-color="light"> 
-                    <img src="https://mdbootstrap.com/img/new/standard/city/047.jpg" className="w-100" alt="place" aria-controls="#picker-editor" draggable="false" />
+                    <img src="https://cdn.travelsafe-abroad.com/wp-content/uploads/how-to-plan-your-travel-budget.png" className="w-100" style={{height:"250px"}} alt="place" aria-controls="#picker-editor" draggable="false" />
                   </div> 
                   <h5 className="fw-bold">Track Budget</h5> 
                   <div className="mb-3 text-danger small"> 
                   <i class="fas fa-money-bill me-2" aria-controls="#picker-editor"></i>
                     <span>Cost Effective</span> 
                   </div> 
-                  <p className="text-muted"> Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat vulputate. Ut vulputate est non quam dignissim elementum. 
-                    Donec a ullamcorper diam. 
+                  <p className="text-muted"> By mapping out each element of a trip, your clients will be able to estimate how much the trip will cost them in total. By knowing this, clients can start saving early on which will allow them to do everything they had hoped they would be able to. This will prevent clients running out of money too early on in their trip and having to scrimp and save for the rest!
                   </p> 
                 </div> 
               </div>

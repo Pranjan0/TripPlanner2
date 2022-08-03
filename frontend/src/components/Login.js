@@ -1,13 +1,16 @@
 import { Formik } from 'formik';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { UserContext } from '../useContext';
 
-const img='https://sustainabletravel.org/wp-content/uploads/Small-Islands-Header-Image-Web.jpg';
-const img2='https://wallpaperaccess.com/full/407997.jpg';
+
+const img2='https://sustainabletravel.org/wp-content/uploads/Small-Islands-Header-Image-Web.jpg';
+
 
 const Login = () => {
   const navigate = useNavigate();
+  const {setLoggedIn, setCurrentUser} = useContext(UserContext);
 
     const userSubmit = async (formdata) => {
         console.log(formdata);
@@ -26,6 +29,7 @@ const Login = () => {
               })
               res.json().then(data=>{
                 sessionStorage.setItem("user",JSON.stringify(data));
+                setLoggedIn(true);
                 navigate('/browse');
              });
             }else if(res.status===400){

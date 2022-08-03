@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import Button from 'react-bootstrap/Button';
+import Collapse from 'react-bootstrap/Collapse';
+import Card from 'react-bootstrap/Card';
+
 const img2='https://thumbs.dreamstime.com/b/travel-web-header-world-map-9984008.jpg';
 
 const Browseplaces = () => {
@@ -9,6 +13,7 @@ const Browseplaces = () => {
   const [loading, setLoading] = useState(false);
 
   const [filter, setFilter] = useState("");
+  const [open, setOpen] = useState(false);
 
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
 
@@ -93,7 +98,7 @@ const Browseplaces = () => {
                 class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                 data-mdb-ripple-color="light"
               >
-                <img src={url + "/" + thumbnail} class="w-100" />
+                <img src={url + "/" + thumbnail} class="w-100" style={{height:"200px"}} />
                 <a href="#!">
                   <div class="mask">
                     <div class="d-flex justify-content-start align-items-end h-100">
@@ -111,18 +116,35 @@ const Browseplaces = () => {
                 </a>
               </div>
               <div class="card-body">
-                <h4>{title}</h4>
+              <button
+  class="btn btn-primary"
+  type="button"
+  data-mdb-toggle="collapse"
+  data-mdb-target={"#"+_id}
+  aria-expanded="false"
+  aria-controls={_id}
+>
+  View
+</button>
+      <div >
+        
+        <div class="collapse mt-3" id={_id}>
+        <Card body style={{ width: '300px' }}>
+            <h4>{title}</h4>
                 <p>
                   {city},{state}
                 </p>
                 <p>{description}</p>
                 <h5>Best time to visit - {bestTime}</h5>
                 <p>Budget - {budget}</p>
+            </Card>
+</div>
                 <b>
                   <button onClick={e => addToItinerary(_id)} className="btn btn-primary mt-5">
                     Add to Itinerary
                   </button>
                 </b>
+      </div>
               </div>
             </div>
           </div>
@@ -131,10 +153,9 @@ const Browseplaces = () => {
     }
   };
   return (
-    <div style={{backgroundImage:`url(${img2})`,backgroundPosition:"center"}} >
-      <b><h2 style={{color:"black"}}>Browse Tourism Places</h2></b>
-      <hr />
-      <header>
+    <div >
+      
+      <header style={{backgroundImage:`url(${img2})`,backgroundPosition:"center",height:"150px"}}>
         <div className="container">
           <h1 className="text-center display-4 font-weight-bold" style={{color:"black"}}>Create Your Itinerary</h1>
           <div className="input-group mb-3">
@@ -150,6 +171,7 @@ const Browseplaces = () => {
               Search
             </button>
           </div>
+          <h5 className="text-center text-bold" style={{color:'black'}}>Browse Tourism Places</h5>
         </div>
       </header>
       <section style={{ backgroundColor: "#8fe4ef" }}>
