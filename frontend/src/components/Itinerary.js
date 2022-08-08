@@ -174,7 +174,7 @@ const Itinerary = () => {
       </header>
       <section style={{ backgroundColor: "#eee",backgroundImage:`url(${img})`,backgroundSize:"cover" }}>
         <div class="text-center container py-5">
-          <h4 class="mt-4 mb-5">
+          <h4 class="mt-4 mb-5" style={{color:'black'}}>
             <strong>😍Mark your Place`😍</strong>
           </h4>
 
