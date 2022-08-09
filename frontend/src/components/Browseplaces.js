@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import Button from "react-bootstrap/Button";
-import Collapse from "react-bootstrap/Collapse";
 import Card from "react-bootstrap/Card";
 
 const img2 =
@@ -15,6 +13,8 @@ const Browseplaces = () => {
 
   const [filter, setFilter] = useState("");
   const [open, setOpen] = useState(false);
+
+  const [cardOpen, setCardOpen] = useState(null);
 
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
@@ -106,7 +106,7 @@ const Browseplaces = () => {
                 <img
                   src={url + "/" + thumbnail}
                   class="w-100"
-                  style={{ height: "200px" }}
+                  style={{ height: "250px" }}
                 />
                 <a href="#!">
                   <div class="mask">
@@ -125,31 +125,12 @@ const Browseplaces = () => {
                 </a>
               </div>
               <div class="card-body">
-                <span>
-                  <p>Click on view for details📑</p>
-                </span>
-                <div class="accordion" id="accordionExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                      <button
-                        class="accordion-button"
-                        type="button"
-                        data-mdb-toggle="collapse"
-                        data-mdb-target={"#" + _id}
-                        aria-expanded="true"
-                        aria-controls="collapseOne"
-                      >
-                        title
-                      </button>
-                    </h2>
-                    <div
-                      id={_id}
-                      class="accordion-collapse collapse show"
-                      aria-labelledby="headingOne"
-                      data-mdb-parent={"#"+_id}
-                    >
-                      <div class="accordion-body">
-                        <Card body style={{ width: "300px" }}>
+                <button onClick={e => {
+                  if(cardOpen === index) setCardOpen(null);
+                  else setCardOpen(index);
+                }} className="btn btn-link">View Details 📑</button>
+
+                <Card body style={{height : (cardOpen === index ? 'fit-content' : 0 ), overflow: 'hidden'}} zIndex="5">
                           <h4>{title}</h4>
                           <p>
                             {city},{state}
@@ -158,16 +139,12 @@ const Browseplaces = () => {
                           <h5>Best time to visit - {bestTime}</h5>
                           <p>Budget - {budget}</p>
                         </Card>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
                 <div>
                   <b>
                     <button
                       onClick={(e) => addToItinerary(_id)}
-                      className="btn btn-primary mt-5"
+                      className="btn btn-primary mt-3"
                     >
                       Add to Itinerary
                     </button>
@@ -189,7 +166,7 @@ const Browseplaces = () => {
           height: "250px",
         }}
       >
-        <div className="container">
+        <div className="col-md-10 mx-auto">
           <h1
             className="text-center display-2 font-weight-bold pt-4"
             style={{ color: "black" }}
@@ -215,7 +192,7 @@ const Browseplaces = () => {
         </div>
       </header>
       <section style={{ backgroundColor: "#8fe4ef" }}>
-        <div class="text-center container py-4">
+        <div class="text-center col-md-10 mx-auto py-4">
           <h4 class="mt-2 mb-5" style={{ color: "black" }}>
             <strong>😍Mark your Place😍</strong>
           </h4>

@@ -43,3 +43,7 @@
   font-weight: bolder;
   font-size: 50px;
 }
+
+*{
+  transition-duration: 400ms;
+}
